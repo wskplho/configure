@@ -34,6 +34,9 @@ set backspace=2		" INSERT模式下Delete删除缩进和行尾，但Backspace不�
 set nowrapscan		" 禁止循环查找方式
 set noignorecase	" 精确匹配大小写
 
+set autochdir
+set tags=tags;
+
 set t_Co=256
 set background=light
 colorscheme desert

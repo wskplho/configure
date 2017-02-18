@@ -25,7 +25,6 @@ set shiftwidth=4     " 缩进用4个空格表示
 set nobackup         " 从不备份
 set nocompatible     " 与 Vi 不完全兼容
 set noswapfile       " 关闭交换文件
-set nopaste 
 set ignorecase       " 搜索忽略大小写
 set ruler            " 右下角显示当前光标位置
 set showcmd          " 在 Vim 窗口右下角，标尺的右边显示未完成的命令

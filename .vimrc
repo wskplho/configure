@@ -130,8 +130,8 @@ Plugin 'majutsushi/tagbar'
 call vundle#end()  
 filetype plugin indent on
 
-autocmd InsertEnter * :set norelativenumber number paste     " 插入模式下用绝对行号，允许粘贴时保持格式不变
-autocmd InsertLeave * :set relativenumber nopaste            " 普通模式下用相对行号
+autocmd InsertEnter * :set norelativenumber number           " 插入模式下用绝对行号，允许粘贴时保持格式不变
+autocmd InsertLeave * :set relativenumber                    " 普通模式下用相对行号
 nnoremap <F2> :g/^\s*$/d<CR>                                 " <F2> 去空行
 map <F3> :%s/\s\+$//<CR>                                     " <F3> 删除多余空格
 nnoremap <F4> :call NumberToggle()<cr>                       " <F4> 相对和绝对行号切换

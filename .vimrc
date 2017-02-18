@@ -128,7 +128,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'taglist.vim'
 call vundle#end()  
 filetype plugin indent on
 

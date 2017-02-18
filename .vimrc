@@ -95,6 +95,8 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>" 					"回车即选中当�
 
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
+highlight LineNr ctermbg=NONE
+highlight Error cterm=bold ctermfg=1 ctermbg=NONE
 
 "设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr

@@ -20,8 +20,9 @@ set cindent          " c/c++风格
 set number           " 显示行号 
 set cursorline       " 突出显示当前行
 "set cursorcolumn    " 突出显示当前列
-set tabstop=4        " 一个tab相当于4个空格
-set shiftwidth=4     " 缩进用4个空格表示
+set tabstop=4        " 一个tab相当于4个空格的长度
+set shiftwidth=4     " 每次缩进的空格数
+"set expandtab       " 将tab展开为空格
 set nobackup         " 从不备份
 set nocompatible     " 与 Vi 不完全兼容
 set noswapfile       " 关闭交换文件
@@ -31,6 +32,7 @@ set showcmd          " 在 Vim 窗口右下角，标尺的右边显示未完成�
 set novisualbell     " 不要闪烁
 set backspace=2      " INSERT模式下Delete删除缩进和行尾，但Backspace不能向前删除
 set nowrapscan       " 禁止循环查找方式
+"set noignorecase    " 精确匹配大小写
 
 set autochdir
 set tags=tags;

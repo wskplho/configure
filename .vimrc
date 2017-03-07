@@ -33,13 +33,15 @@ set novisualbell     " 不要闪烁
 set backspace=2      " INSERT模式下Delete删除缩进和行尾，但Backspace不能向前删除
 set nowrapscan       " 禁止循环查找方式
 "set noignorecase    " 精确匹配大小写
+set nocompatible  
+filetype off  
 
 set autochdir
 set tags=tags;
 
 set t_Co=256
-set background=light
-colorscheme desert
+set background=dark
+colorscheme solarized
 
 "html和css自动补全
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -61,6 +63,12 @@ endfunc
 "状态栏
 "set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P}}
 "airline
+
+"syntastic0配置
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "设置airline
 set laststatus=2
@@ -119,8 +127,21 @@ highlight SpellLocal term=underline cterm=underline
 highlight Pmenu ctermfg=7 ctermbg=6     "普通菜单
 highlight PmenuSel ctermfg=7 ctermbg=5  "选中项
 
-set nocompatible  
-filetype off  
+" 设置python风格缩进
+au BufNewFile,BufRead *.py
+\ set tabstop=4
+\ set softtabstop=4
+\ set shiftwidth=4
+\ set textwidth=79
+\ set expandtab
+\ set autoindent
+\ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+\ set tabstop=2
+\ set softtabstop=2
+\ set shiftwidth=2
+
 set rtp+=~/.vim/bundle/Vundle.vim  
 call vundle#begin()  
 Plugin 'gmarik/Vundle.vim'  
@@ -129,6 +150,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
 call vundle#end()  
 filetype plugin indent on
 
@@ -145,6 +169,7 @@ function! NumberToggle()
   endif
 endfunc
 
+autocmd FileType python map <buffer> <F5> :call Flake8()<CR>
 nmap <F8> :NERDTreeToggle<CR>                        " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 let NERDTreeWinSize=32                               " 设置NERDTree子窗口宽度
 let NERDTreeWinPos="right"                           " 设置NERDTree子窗口位置

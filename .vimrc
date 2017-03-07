@@ -34,14 +34,13 @@ set backspace=2      " INSERT模式下Delete删除缩进和行尾，但Backspace
 set nowrapscan       " 禁止循环查找方式
 "set noignorecase    " 精确匹配大小写
 set nocompatible  
-filetype off  
 
 set autochdir
 set tags=tags;
 
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme molokai
 
 "html和css自动补全
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -65,10 +64,10 @@ endfunc
 "airline
 
 "syntastic0配置
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 "设置airline
 set laststatus=2
@@ -128,20 +127,22 @@ highlight Pmenu ctermfg=7 ctermbg=6     "普通菜单
 highlight PmenuSel ctermfg=7 ctermbg=5  "选中项
 
 " 设置python风格缩进
-au BufNewFile,BufRead *.py
-\ set tabstop=4
-\ set softtabstop=4
-\ set shiftwidth=4
-\ set textwidth=79
-\ set expandtab
-\ set autoindent
+au BufNewFile,BufRead *.py 
+\ set tabstop=4 |
+\ set softtabstop=4 |
+\ set shiftwidth=4 |
+\ set textwidth=79 |
+\ set expandtab |
+\ set autoindent |
 \ set fileformat=unix
 
+" 设置其他语言风格的代码缩进
 au BufNewFile,BufRead *.js, *.html, *.css
-\ set tabstop=2
-\ set softtabstop=2
+\ set tabstop=2 |
+\ set softtabstop=2 |
 \ set shiftwidth=2
 
+filetype off  
 set rtp+=~/.vim/bundle/Vundle.vim  
 call vundle#begin()  
 Plugin 'gmarik/Vundle.vim'  
@@ -150,9 +151,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'vim-scripts/indentpython.vim'
+"Plugin 'altercation/solarized'
+"Plugin 'tomasr/molokai'
 Plugin 'nvie/vim-flake8'
+Plugin 'vim-scripts/indentpython.vim'
 call vundle#end()  
 filetype plugin indent on
 
